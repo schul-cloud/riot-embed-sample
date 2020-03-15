@@ -3,10 +3,39 @@
   <head>
     <meta charset="utf-8">
     <title>Riot embedded</title>
+    <style type="text/css">
+      body {
+        background: #f5fdff;
+        font-family: Helvetica Neue;
+      }
+      .container {
+        margin: auto;
+        max-width: 900px;
+        background: white;
+        height: 150vh;
+        padding: 20px;
+      }
+    </style>
   </head>
   <body>
-    <section id="matrixchat" data-vector-indexeddb-worker-script="https://embed.stomt.com/bundles/d4c31bd4d8d5888b2b2e/indexeddb-worker.js"></section>
-    <script async src="https://embed.stomt.com/bundles/d4c31bd4d8d5888b2b2e/bundle.js"></script>
-    <link async rel="stylesheet" href="https://embed.stomt.com/bundles/d4c31bd4d8d5888b2b2e/bundle.css">
+
+    <div class="container">
+      <h1>Embedded Riot Chat</h1>
+
+      <p>Sample implementation:</p>
+      <script src="https://gist.github.com/maxklenk/2b3fef6976b5c3e0f42e889200f94b5d.js"></script>
+
+    </div>
+
+
+    <!-- Load embedded Riot Chat client -->
+    <section
+      id="matrixchat"
+      data-vector-indexeddb-worker-script="indexeddb-worker.js"
+      data-vector-config="config.json"
+    ></section>
+    <script async src="https://embed.stomt.com/bundles/7b6b640c5ddd980c24fa/bundle.js"></script>
+    <!-- END: Load embedded Riot Chat client -->
+
   </body>
 </html>
