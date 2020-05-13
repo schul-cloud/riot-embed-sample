@@ -27,21 +27,33 @@
 
     </div>
 
-
     <!-- Load embedded Riot Chat client -->
-    <section
-      id="matrixchat"
-      data-vector-indexeddb-worker-script="indexeddb-worker.js"
-      data-vector-config="config.json"
-      data-vector-default-toggled="false"
-      data-matrix-room-id=""
-      data-matrix-lang=""
+     <script type="text/javascript">
+        const matrixAssetDomain = 'https://embed.stomt.com/';
 
-      data-matrix-homeserver-url=""
-      data-matrix-user-id=""
-      data-matrix-access-token=""
-    ></section>
-    <script async src="https://embed.stomt.com/bundles/5a1ddf45b59d88d77d17/bundle.js"></script>
+        // load javascript
+        const riotScript = document.createElement('script');
+        riotScript.src = `${matrixAssetDomain}embed.js`;
+        riotScript.type = 'text/javascript';
+        document.head.appendChild(riotScript);
+
+        // setup
+        const options = {
+            riotConfig: 'config.json', // has to contain custom config
+            indexeddbWorkerScript: 'indexeddb-worker.js', // has to be on website domain
+            assetDomain: matrixAssetDomain,
+            language: 'en',
+            defaultToggled: false,
+
+            // session
+            homeserverUrl: 'https://matrix.stomt.com',
+            userId: '@sso_0000d213816abba584714c0a:matrix.stomt.com',
+            accessToken: 'MDAxZWxvY2F0aW9uIG1hdHJpeC5zdG9tdC5jb20KMDAxM2lkZW50aWZpZXIga2V5CjAwMTBjaWQgZ2VuID0gMQowMDQxY2lkIHVzZXJfaWQgPSBAc3NvXzAwMDBkMjEzODE2YWJiYTU4NDcxNGMwYTptYXRyaXguc3RvbXQuY29tCjAwMTZjaWQgdHlwZSA9IGFjY2VzcwowMDIxY2lkIG5vbmNlID0gX20wLHRJbWsrQiYmc192JgowMDJmc2lnbmF0dXJlIA1Owqp4Ig9To6nCAv5Nc9b3ow2vf__yE9N3hhitZQLNCg',
+            deviceId: 'JELQHGYWFI',
+        };
+        window.Matrix = window.Matrix || [];
+        window.Matrix.push(['setup', options]);
+    </script>
     <!-- END: Load embedded Riot Chat client -->
 
   </body>
